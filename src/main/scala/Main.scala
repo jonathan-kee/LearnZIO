@@ -14,9 +14,24 @@ object Main extends ZIOAppDefault {
       _ <- printLine(s"Hello, ${name}, welcome to ZIO!")
     } yield ()
 
+  val myAppLogic2:ZIO[Any, Nothing, Int] = ZIO.succeed(42)
+
   // run is an override
-  override def run = myAppLogic.fold(
-    fail => println("Fail"),
-    success => println("Success")
-  )
+//  override def run = myAppLogic.fold(
+//    fail => println("Fail"),
+//    success => println("Success")
+//  )
+
+  def max(x: Int, y: Int): Int = {
+    if (x > y) x else y
+  }
+
+  // If I am not mistaken, the for {} syntax only work if it's like the last argument
+  // the for {} syntax helps you to not use ; to indicate new statement
+  val myAppLogic3 = for {
+    _ <- printLine(max(2, 3))
+    _ <- printLine(max(3, 4))
+  } yield ()
+
+  override def run = myAppLogic3
 }
