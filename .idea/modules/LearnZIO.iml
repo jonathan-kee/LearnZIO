@@ -11,6 +11,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sbt: dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:2.3.8:jar" level="project" />
+    <orderEntry type="library" name="sbt: dev.zio:izumi-reflect_2.13:2.3.8:jar" level="project" />
+    <orderEntry type="library" name="sbt: dev.zio:zio-internal-macros_2.13:2.0.16:jar" level="project" />
+    <orderEntry type="library" name="sbt: dev.zio:zio-stacktracer_2.13:2.0.16:jar" level="project" />
+    <orderEntry type="library" name="sbt: dev.zio:zio_2.13:2.0.16:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.12:jar" level="project" />
   </component>
 </module>
