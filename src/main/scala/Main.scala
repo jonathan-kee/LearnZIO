@@ -2,7 +2,6 @@ import zio._
 import zio.Console._
 
 object Main extends ZIOAppDefault {
-
   val myAppLogic =
     for {
       _ <- printLine("Hello! What is your name?")
@@ -10,5 +9,9 @@ object Main extends ZIOAppDefault {
       _ <- printLine(s"Hello, ${name}, welcome to ZIO!")
     } yield ()
 
-  def run = myAppLogic
+  // run is an override
+  override def run = myAppLogic.fold(
+    fail => println("Fail"),
+    success => println("Success")
+  )
 }
