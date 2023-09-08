@@ -33,5 +33,16 @@ object Main extends ZIOAppDefault {
     _ <- printLine(max(3, 4))
   } yield ()
 
-  override def run = myAppLogic3
+  // Using a reference to an Array in the next line and print it
+  val myAppLogic4 = for {
+    i <- ZIO.succeed(Array(1,2,3)) // Array(1, 2, 3);
+    _ <- ZIO.succeed(i.foreach(println))
+  } yield ()
+
+  // From RockJvm repo
+  // https://github.com/rockthejvm/zio-course/blob/master/src/main/scala/com/rockthejvm/part2effects/ZIOEffects.scala
+  val meaningOfLife: ZIO[Any, Nothing, Int] = ZIO.succeed(42)
+  val printingMOL = meaningOfLife.flatMap(mol => ZIO.succeed(println(mol)))
+
+  override def run = myAppLogic4
 }
